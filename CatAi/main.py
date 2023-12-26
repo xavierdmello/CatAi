@@ -1,11 +1,11 @@
 from fastai.vision.all import *
 import gradio as gr
 
-# Load your model
+# Load  model
 learn = load_learner('model.pkl')
 labels = learn.dls.vocab
 
-# Define your prediction function
+# Define prediction function
 def predict(img):
     img = PILImage.create(img)
     pred, pred_idx, probs = learn.predict(img)
@@ -18,5 +18,5 @@ interface = gr.Interface(
     outputs=gr.components.Label()
 )
 
-# Launch the interface
+# Launch interface
 interface.launch(share=True)
